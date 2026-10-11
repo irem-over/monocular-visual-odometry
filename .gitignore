@@ -1,0 +1,14 @@
+# Build outputs
+build/
+bin/
+lib/
+
+# IDE & OS
+.DS_Store
+.vscode/
+.idea/
+
+# Datasets
+data/
+*.zip
+*.tar.gz
