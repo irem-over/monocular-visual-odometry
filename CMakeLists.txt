@@ -6,8 +6,10 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 find_package(OpenCV REQUIRED)
 find_package(Eigen3 REQUIRED)
+
 add_library(dataset_lib
     src/dataset/kitti_loader.cpp
+    src/dataset/calibration.cpp
 )
 
 target_include_directories(dataset_lib PUBLIC
@@ -26,5 +28,13 @@ add_executable(test_kitti_loader
 )
 
 target_link_libraries(test_kitti_loader PRIVATE
+    dataset_lib
+)
+
+add_executable(test_calibration
+    tests/test_calibration.cpp
+)
+
+target_link_libraries(test_calibration PRIVATE
     dataset_lib
 )
