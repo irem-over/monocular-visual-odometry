@@ -10,6 +10,7 @@ find_package(Eigen3 REQUIRED)
 add_library(dataset_lib
     src/dataset/kitti_loader.cpp
     src/dataset/calibration.cpp
+    src/dataset/pose.cpp
 )
 
 target_include_directories(dataset_lib PUBLIC
@@ -36,5 +37,13 @@ add_executable(test_calibration
 )
 
 target_link_libraries(test_calibration PRIVATE
+    dataset_lib
+)
+
+add_executable(test_pose
+    tests/test_pose.cpp
+)
+
+target_link_libraries(test_pose PRIVATE
     dataset_lib
 )
