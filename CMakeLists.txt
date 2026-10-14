@@ -11,6 +11,7 @@ add_library(dataset_lib
     src/dataset/kitti_loader.cpp
     src/dataset/calibration.cpp
     src/dataset/pose.cpp
+    src/dataset/kitti_dataset.cpp
 )
 
 target_include_directories(dataset_lib PUBLIC
@@ -45,5 +46,13 @@ add_executable(test_pose
 )
 
 target_link_libraries(test_pose PRIVATE
+    dataset_lib
+)
+
+add_executable(test_kitti_dataset
+    tests/test_kitti_dataset.cpp
+)
+
+target_link_libraries(test_kitti_dataset PRIVATE
     dataset_lib
 )
