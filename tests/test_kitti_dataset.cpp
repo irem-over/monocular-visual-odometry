@@ -23,16 +23,12 @@ int main()
         std::cout << "Camera cx: " << calibration.cx << ", cy: " << calibration.cy << "\n\n";
 
         const dataset::PoseList& poses = dataset.get_ground_truth_poses();
-        std::cout << "Initial ground truth translation (x, y, z): "
-                  << poses.front()(0, 3) << ", "
-                  << poses.front()(1, 3) << ", "
-                  << poses.front()(2, 3) << "\n";
+        std::cout << "Initial ground truth translation (x, y, z): " << poses.front()(0, 3) << ", " << poses.front()(1, 3) << ", "<< poses.front()(2, 3) << "\n";
 
         cv::Mat first_frame;
         if (dataset.get_image_sequence().get_next_frame(first_frame))
         {
-            std::cout << "First frame read successfully. Dimensions: "
-                      << first_frame.cols << "x" << first_frame.rows << "\n";
+            std::cout << "First frame read successfully. Dimensions: " << first_frame.cols << "x" << first_frame.rows << "\n";
         }
         else
         {
