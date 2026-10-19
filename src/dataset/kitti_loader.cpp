@@ -8,6 +8,12 @@ namespace dataset
 {
     std::vector<fs::path> scan_image_directory(const fs::path& directory_path)
     {
+        if (!fs::exists(directory_path) || !fs::is_directory(directory_path))
+        {
+            throw std::runtime_error(
+                "Image path is not a directory: " + directory_path.string());
+        }
+        
         std::vector<fs::path> valid_paths;
 
         for (const auto& entry : fs::directory_iterator(directory_path))
