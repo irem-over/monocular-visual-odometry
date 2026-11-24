@@ -30,7 +30,7 @@ int main(int argc, char* argv[])
                   << kitti_dataset.get_total_frames()
                   << "\n";
         vo::BaselineVOConfig config;
-        config.max_frames = 100;
+        config.max_frames = 0;
 
         const vo::BaselineVOResult result = vo::run_baseline_vo(kitti_dataset, config);
 
